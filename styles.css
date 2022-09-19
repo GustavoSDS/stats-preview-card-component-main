@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2? family= Inter:wght@400;700 & family= Lexend+Deca & display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap');
 
 /* ## Colors */
 :root {
@@ -90,18 +90,17 @@ p {
 
 /* Footer */
 .attribution {
-    font-size: 11px;
+    font-size: 13px;
     text-align: center;
     margin-bottom: 40px;
     color: var(--White);
 }
 
 .attribution a {
-    color: hsl(228, 45%, 44%);
+    color: var(--SoftViolet);
 }
 
-/*                           Media queries  desktop */
-
+/*       Media queries  desktop       */
 @media screen and (min-width:1200px) {
     main{
         width: 1110px;
