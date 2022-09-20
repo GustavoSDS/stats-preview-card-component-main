@@ -5,7 +5,7 @@
     --VeryDarkBlue: hsl(233, 47%, 7%);
     --DarkDesaturatedBlue: hsl(244, 38%, 16%);
     --SoftViolet: hsl(277, 64%, 61%);
-    --Layer: rgba(110, 30, 160, 0.5);
+    --Layer: rgba(110, 30, 160, 0.4);
     --White: hsl(0, 0%, 100%);
     --SlightlyTransparentP: hsla(0, 0%, 100%, 0.75);
     --SlightlyTransparentH: hsla(0, 0%, 100%, 0.6);
@@ -18,9 +18,15 @@
 }
 
 body {
+    max-width: 375;
+    max-height: 956;
     font-family: 'Lexend Deca', sans-serif;
-    font-size: 15px;
+    font-size: .94em;
     background-color: var(--VeryDarkBlue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 main {
@@ -28,75 +34,101 @@ main {
     height: 782px;
     width: 328px;
     margin: 88px auto;
-    border-radius: 5px;
+    border-radius: 6px;
     overflow: hidden;
+    position: relative;
 }
 
-/*                         Section 1                            */
 .image {
-    background-image: url(/images/image-header-mobile.jpg);
-    background-size: cover;
     width: 100%;
     height: 240px;
+    background-image: url(/images/image-header-mobile.jpg);
+    background-size: cover;
+    position: relative;
 }
 
-#layer {
-    background-color: var(--Layer);
-    height: 100%;
-    width: 100%;
+.image::after {
+    content: "";
+    background: var(--Layer);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
-/*                       Section 2                                    */
-.section2 {
-    padding: 40px 33px;
+section.section2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
     text-align: center;
+    padding: 40px 23px;
 }
 
 h1 {
+    height: auto;
     color: var(--White);
     font-size: 1.8em;
     font-family: 'Inter', sans-serif;
-    height: 115px;
     letter-spacing: 1px;
+    margin-bottom: 20px;
 }
-span{
+
+span {
     color: var(--SoftViolet);
 }
+
 p {
     color: var(--SlightlyTransparentP);
     font-family: 'Inter', sans-serif;
     font-size: 1em;
     line-height: 25px;
-    height: 137px;
-    margin-bottom: 10px;
+    height: auto;
+    margin-bottom: 45px;
+}
+
+.br-desktop {
+    display: none;
 }
 
 .stats {
     color: var(--White);
     line-height: 25px;
 }
-.amount{
+
+.stats-details {
+    height: 43px;
+    margin-bottom: 35px;
+}
+
+.amount {
     font-weight: 700;
     font-size: 1.5em;
     color: var(--White);
     letter-spacing: 1.5px;
     font-family: 'Inter', sans-serif;
 }
-.concept{
+
+.concept {
     text-transform: uppercase;
     font-size: .8em;
-    margin-bottom: 33px;
+    margin-bottom: 30px;
     color: var(--SlightlyTransparentP);
     letter-spacing: 1.5px;
     font-family: 'Inter', sans-serif;
 }
-.last{
+
+.last {
     text-transform: uppercase;
 }
 
-
 /* Footer */
 .attribution {
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
     font-size: 13px;
     text-align: center;
     margin-bottom: 40px;
@@ -107,35 +139,67 @@ p {
     color: var(--SoftViolet);
 }
 
-/*       Media queries  desktop       */
+
+
 @media screen and (min-width:1200px) {
-    main{
+    body {
+        max-width: 1440px;
+        max-height: 800px;
+    }
+
+    main {
         width: 1110px;
-        height: 448px;
-        display: flex;
-        flex-direction: row-reverse;
-        margin: 178px auto;
+        height: 446px;
+        margin: 177px auto;
     }
-    .image{
+
+    .image {
         width: 540px;
-        height: 100%;
+        height: 448px;
         background-image: url(/images/image-header-desktop.jpg);
+        background-size: cover;
     }
-    .section2{
+
+    section.section2 {
+        flex-direction: row-reverse;
+    }
+
+    .content {
         width: 570px;
         padding: 75px 72px;
         margin-right: 10px;
         text-align: left;
     }
-    h1{
+
+    h1 {
         font-size: 2.25em;
+        height: 80px;
+        margin: 0;
+        margin-bottom: 40px;
     }
-    p{
-        margin-right: 70px;
+
+    .br-mobile {
+        display: none;
     }
-    .stats{
+
+    .br-desktop {
+        display: block;
+    }
+
+    p {
+        margin: 0;
+        height: 65px;
+        text-align: left;
+    }
+
+    .stats {
+        width: 348px;
+        margin: 70px auto 80px;
         display: flex;
+        float: left;
         justify-content: space-between;
-        margin-right: 70px;
+    }
+    .stats-details{
+        margin: 0;
     }
 }
