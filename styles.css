@@ -170,7 +170,7 @@ p {
     }
     .stats{
         width: 350px;
-        margin: 60px 0;
+        margin: 70px 0;
         margin-left: 12px;
         flex-direction: row;
         justify-content: space-between;
